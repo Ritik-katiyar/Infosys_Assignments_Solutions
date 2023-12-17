@@ -1,0 +1,58 @@
+#----------------------------Programming fundamental using Python part-2 -----------------------------------------
+#-----------------------------------------Assignment 6 Ques 1--------------------------------------
+def is_palindrome(word):
+    word.lower()
+    if word[::]
+#-----------------------------------------Assignment 6 Ques 2--------------------------------------
+def find_largest_prime_factor(list_of_factors):
+    list_of_factors.sort(reverse = True)
+    for fact in list_of_factors:
+        if is_prime(fact,int(fact/2)):
+            return fact
+    return 1
+def find_f(num):
+    if is_prime(num,num/2):
+        return num
+    else:
+        l =find_factors(num)
+        return find_largest_prime_factor(l)
+def find_g(num):
+    sum = 0
+    for i in range(num,num+9):
+        sum = sum + find_f(i)
+    return sum
+#-----------------------------------------Assignment 6 Ques 4--------------------------------------
+def find_smallest_number(num):
+    for i in range(1,num*10):
+        l=[]
+        for j in range(1,i+1):
+            if i%j==0:
+                l.append(j)
+        if len(l)==num:
+            return i
+#-----------------------------------------Assignment 6 Ques 5--------------------------------------
+def find_ten_substring(num_str):
+    final=[]
+    temp=[]
+    for index,value in enumerate(list(num_str)):
+        l=[]
+        temp=[]
+        for i in range(index,len(num_str)):
+            l.append(int(num_str[i]))
+            s = sum(l)
+            if s<10:
+                continue
+            elif s==10:
+                for value in l:
+                    temp.append(str(value))
+                sum_string = "".join(temp)
+                final.append(sum_string)
+                if i!=(len(num_str)-1):
+                    if num_str[i+1]=='0':
+                        temp=[]
+                        continue
+                break
+            elif s>10:
+                break
+    return final
+
