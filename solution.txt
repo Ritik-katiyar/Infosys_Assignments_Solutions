@@ -55,4 +55,24 @@ def find_ten_substring(num_str):
             elif s>10:
                 break
     return final
+----------------------------------------------------------------------------------------------------------------
+def find_target_positions(input_string,target_word):
+    target_list=[]
+    input_string=list(input_string.split())
+    for i in range(len(input_string)):
+        if input_string[i]==target_word:
+            target_list.append(i)
+    return target_list
+
+def find_inverted_index(input_string):
+    target_dict={}
+    input_string=list(input_string.split())
+    for i in range(len(input_string)):
+        if input_string[i] not in target_dict:
+            target_dict[input_string[i]]=[]
+            target_dict[input_string[i]].append(i)
+        else:
+            target_dict[input_string[i]].append(i)
+    return target_dict
+
 
